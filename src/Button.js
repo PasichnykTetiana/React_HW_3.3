@@ -11,15 +11,15 @@ class Button extends Component {
   onButtonClick = (e) => {
     let val = e.target.getAttribute('id');
     console.log(val);
-    if (val === 'plus') {
-      this.setState({
-        count: this.state.count + 1,
-      });
-    } else {
-      this.setState({
-        count: this.state.count - 1,
-      });
-    }
+    this.setState(
+      val === 'plus'
+        ? {
+            count: this.state.count - 1,
+          }
+        : {
+            count: this.state.count + 1,
+          },
+    );
   };
 
   render() {
