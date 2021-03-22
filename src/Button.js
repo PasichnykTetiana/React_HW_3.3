@@ -8,15 +8,16 @@ class Button extends Component {
     };
   }
 
-  onButtonClick = () => {
-    console.log(this.state.count);
-    if (this.props.name === 'plus') {
+  onButtonClick = (e) => {
+    let val = e.target.getAttribute('id');
+    console.log(val);
+    if (val === 'plus') {
       this.setState({
-        count: this.state.count + this.props.inc,
+        count: this.state.count + 1,
       });
     } else {
       this.setState({
-        count: this.state.count - this.props.inc,
+        count: this.state.count - 1,
       });
     }
   };
@@ -24,8 +25,13 @@ class Button extends Component {
   render() {
     return (
       <div>
-        <button onClick={this.onButtonClick}>{this.props.name}</button>
-        <div>{this.state.count}</div>
+        <button onClick={this.onButtonClick} id="minus">
+          Минус
+        </button>
+        <button onClick={this.onButtonClick} id="plus">
+          Плюс
+        </button>
+        <div>Результат: {this.state.count}</div>
       </div>
     );
   }

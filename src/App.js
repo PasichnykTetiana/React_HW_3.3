@@ -10,8 +10,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Button name="plus" inc={1} />
-        <Button name="minus" inc={1} />
+        <Button />
       </div>
     );
   }
